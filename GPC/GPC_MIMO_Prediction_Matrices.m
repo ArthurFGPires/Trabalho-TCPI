@@ -1,12 +1,12 @@
 %% ========================================================================
 % GPC_MIMO_Prediction_Matrices.m
-% Cálculo das matrizes para GPC MIMO (CARIMA) com Restrições
+% Cálculo das matrizes para GPC MIMO com Restrições
 % ========================================================================
 
 clear; clc; close all;
 
 %% 1. Definição do Modelo Contínuo
-Ts = 1; % min
+Ts = 10; % min
 s = tf('s');
 
 % --- Modelo do Processo Gp(s) (V, R -> xD, xB) ---
@@ -68,7 +68,7 @@ nx = size(A, 1); % nx total = nx_p + nx_d
 N2 = 20;                % Horizonte de Predição
 Nu = 15;                % Horizonte de Controle
 Lambda = 5e4;           % Peso para ação de controle
-Qy = diag([100, 100]);  % Peso para erro de referência
+Qy = diag([300, 300]);  % Peso para erro de referência
 Ru = Lambda * eye(nu);  % Matriz diagonal com peso da ação de controle
 
 %% 4. Cálculo das Matrizes Dinâmicas (G e H)
